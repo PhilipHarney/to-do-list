@@ -80,7 +80,7 @@ function saveList() {
         var toDo = toDoList.children.item(i);
 
         var toDoInfo = {
-            "task": toDo.innerHTML,
+            "task": toDo.innerText,
             "completed": toDo.classList.contains("completed")
         };
 
@@ -113,7 +113,3 @@ clearButton.addEventListener("click", clearCompletedToDoItems);
 emptyButton.addEventListener("click", emptyList);
 
 saveButton.addEventListener("click", saveList);
-
-for(var i = 0; i < toDoList.children.length; i++){
-    toDoList.children.item(i).addEventListener("dblclick", toggleToDoItemState);
-}
