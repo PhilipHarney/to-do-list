@@ -37,7 +37,7 @@ function addToDoItem() {
 function clearCompletedToDoItems() {
     var completedItems = toDoList.getElementsByClassName("completed");
 
-    while(completedItems.length > 0){
+    while (completedItems.length > 0) {
         completedItems.item(0).remove();
     }
 }
@@ -45,29 +45,27 @@ function clearCompletedToDoItems() {
 // This function resets the to-do list to blank
 function emptyList() {
     var toDoItems = toDoList.children;
-    while(toDoItems.length > 0){
+    while (toDoItems.length > 0) {
         toDoItems.item(0).remove();
     }
 }
 
 // This function loads the to-do list when the page loads
 function loadList() {
-    if(localStorage.getItem("toDos") === null){
+    if (localStorage.getItem("toDos") === null) {
         newToDoItem("My", false);
         newToDoItem("to-do", true);
-        newToDoItem("list", false);  
-    }
-    else{
+        newToDoItem("list", false);
+    } else {
         loadListFromStorage();
     }
 }
 
 // This function toggles the state of a to-do item
 function toggleToDoItemState() {
-    if(this.classList.contains("completed")){
+    if (this.classList.contains("completed")) {
         this.classList.remove("completed");
-    }
-    else{
+    } else {
         this.classList.add("completed");
     }
 }
@@ -75,8 +73,8 @@ function toggleToDoItemState() {
 // This function saves the to-do list to local storage
 function saveList() {
     var toDos = [];
-    
-    for(var i = 0; i < toDoList.children.length; i++){
+
+    for (var i = 0; i < toDoList.children.length; i++) {
         var toDo = toDoList.children.item(i);
 
         var toDoInfo = {
@@ -91,10 +89,10 @@ function saveList() {
     localStorage.setItem("toDos", JSON.stringify(toDos));
 }
 
-function loadListFromStorage(){
+function loadListFromStorage() {
     var toDos = JSON.parse(localStorage.getItem("toDos"));
 
-    for(var i = 0; i < toDos.length; i++){
+    for (var i = 0; i < toDos.length; i++) {
         var toDo = toDos[i];
         newToDoItem(toDo.task, toDo.completed);
     }
