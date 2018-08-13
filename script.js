@@ -12,9 +12,9 @@ function newToDoItem(itemText, completed) {
     // Create a new list item
     var toDoItem = document.createElement("li");
     // Create a new piece of text on the web page
-    var itemText = document.createTextNode(itemText);
+    var todoText = document.createTextNode(itemText);
     // Put that text inside the list item
-    toDoItem.appendChild(itemText);
+    toDoItem.appendChild(todoText);
 
     // If the to-do is completed, give it the completed class
     if (completed) {
